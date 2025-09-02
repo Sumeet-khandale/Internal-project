@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git url: 'https://github.com/Sumeet-khandale/Internal-project.git'
+                git url: 'git@github.com:Sumeet-khandale/Internal-project.git'
             }
         }
 
@@ -18,15 +18,15 @@ pipeline {
                 stage('Build USER-SERVICE') {
                     steps {
                         dir('userservice') {
-                            bat 'mvn clean install'
-                        }
+                            sh 'mvn clean install'
+                        }s
                     }
                 }
 
                 stage('Build MOVIE-SERVICE') {
                     steps {
                         dir('movieservice') {
-                            bat 'mvn clean install'
+                           sh 'mvn clean install'
                         }
                     }
                 }
@@ -34,31 +34,46 @@ pipeline {
                 stage('Build BOOKING-SERVICE') {
                     steps {
                         dir('bookingservice') {
-                            bat 'mvn clean install'
+                            sh 'mvn clean install'
                         }
                     }
                 }
              stage('Build PAYMENT-SERVICE') {
                     steps {
                         dir('paymentservice') {
-                            bat 'mvn clean install'
+                            sh 'mvn clean install'
                         }
                     }
                 }
             stage('Build NOTIFICATION-SERVICE') {
                     steps {
                         dir('notificationservice') {
-                            bat 'mvn clean install'
+                            sh 'mvn clean install'
                         }
                     }
                 }
         stage('Build SERVICE-REGISTRY') {
                     steps {
                         dir('ServiceRegistry') {
-                            bat 'mvn clean install'
+                            sh 'mvn clean install'
                         }
                     }
                 }
+        stage('Build API-GATEWAY') {
+                    steps {
+                        dir('apigateway') {
+                            sh 'mvn clean install'
+                        }
+                    }
+                }  
+    
+		stage('Build CONFIG-SERVICE') {
+                    steps {
+                        dir('configservice') {
+                            sh 'mvn clean install'
+                        }
+                    }
+                }   
 
             }
         }
