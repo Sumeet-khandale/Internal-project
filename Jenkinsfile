@@ -19,7 +19,7 @@ pipeline {
                     steps {
                         dir('userservice') {
                             sh 'mvn clean install'
-                        }s
+                        }
                     }
                 }
 

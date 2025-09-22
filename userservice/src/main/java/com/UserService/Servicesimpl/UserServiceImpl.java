@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService, Serializable {
      *
      * @return A list of {@link UserDTO} objects, each containing user data along with their associated 
      *         bookings and watchlist movies.
-     * @throws None. This method does not throw any checked exceptions, but may log errors if external 
+     * @throws None This method does not throw any checked exceptions, but may log errors if external
      *         service calls fail.
      */
     @Override
