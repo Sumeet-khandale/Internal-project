@@ -38,10 +38,10 @@ Authorization: Bearer <your_token>
 ⚙️ Configuration Server
 All service configurations are externalized and managed via a centralized Spring Cloud Config Server.
 
-📁FILE 
-🔐 Authentication (JWT + File-Based Validation)
-Endpoint:
-POST http://localhost:9998/api-gateway/authenticate
+🔐 Authentication (JWT + DB-Based Validation)
+POST  http://localhost:9998/api-gateway/authenticate – Validates user credentials from the database and returns a JWT token.  
+Use the token in Authorization: Bearer <token> header for accessing protected endpoints.
+
 
 How it works:
 API Gateway reads from a file (/FILE/ceate.txt) containing allowed usernames.
